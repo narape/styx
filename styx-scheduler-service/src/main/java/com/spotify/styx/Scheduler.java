@@ -7,9 +7,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -167,7 +167,9 @@ public class Scheduler {
             .collect(toList());
 
     timedOutInstances.forEach(wfi -> this.sendTimeout(wfi, activeStatesMap.get(wfi)));
+    LOG.info("Timed out instances: {}", timedOutInstances);
 
+    LOG.info("Eligible instances: {}", eligibleInstances);
     gateAndDequeueInstances(config, resources, workflowResourceReferences, eligibleInstances);
 
     final long durationMillis = t0.until(time.get(), ChronoUnit.MILLIS);
@@ -271,6 +273,7 @@ public class Scheduler {
         .ofEpochMilli(runState.timestamp())
         .plusMillis(runState.data().retryDelayMillis().orElse(0L));
 
+    LOG.info("State: {}, deadline: {}; now: {}", runState, deadline, now);
     return !deadline.isAfter(now);
   }
 
