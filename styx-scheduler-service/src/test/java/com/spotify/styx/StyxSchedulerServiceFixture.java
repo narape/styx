@@ -209,8 +209,13 @@ public class StyxSchedulerServiceFixture {
   void tickSchedulerUntil(Runnable asserter) {
     List<AssertionError> errors = Lists.newArrayList();
     try {
-      await().atMost(5, SECONDS).until(() -> {
+      await().atMost(10, SECONDS).until(() -> {
         tickScheduler();
+        // Simulation time is sped up to exceed some stale-state-ttls during the entire await, so
+        // that those states time out like in production. Needed because of dropped events. (E.g.
+        // when submit event can't transition because of a transaction conflict, the state will be
+        // stuck and no immediate docker run will result.)
+        timePasses(30, SECONDS);
         try {
           asserter.run();
           return true;
