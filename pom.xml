@@ -37,14 +37,14 @@
   </repositories>
 
   <modules>
-    <module>styx-api-service</module>
-    <module>styx-scheduler-service</module>
+    <!--<module>styx-api-service</module>-->
+    <!--<module>styx-scheduler-service</module>-->
     <module>styx-cli</module>
     <module>styx-client</module>
     <module>styx-common</module>
     <module>styx-test</module>
-    <module>styx-standalone-service</module>
-    <module>styx-report</module>
+    <!--<module>styx-standalone-service</module>-->
+    <!--<module>styx-report</module>-->
   </modules>
 
   <licenses>
@@ -187,6 +187,16 @@
         <version>0.15.1</version>
       </dependency>
       <dependency>
+        <groupId>io.norberg</groupId>
+        <artifactId>auto-matter-gson</artifactId>
+        <version>0.14.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.8.2</version>
+      </dependency>
+      <dependency>
         <groupId>com.cronutils</groupId>
         <artifactId>cron-utils</artifactId>
         <version>7.0.0</version>
@@ -273,7 +283,7 @@
       <dependency>
         <groupId>com.squareup.okhttp3</groupId>
         <artifactId>okhttp</artifactId>
-        <version>3.9.0</version>
+        <version>3.11.0</version>
       </dependency>
 
       <!-- external clients libs -->
@@ -380,6 +390,18 @@
         <version>1.1.2</version>
         <scope>test</scope>
       </dependency>
+      <dependency>
+        <groupId>com.squareup.okhttp3</groupId>
+        <artifactId>mockwebserver</artifactId>
+        <version>3.11.0</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.squareup.okhttp3</groupId>
+        <artifactId>okhttp-tls</artifactId>
+        <version>3.11.0</version>
+        <scope>test</scope>
+      </dependency>
 
       <!-- version resolution -->
       <dependency>
@@ -425,7 +447,7 @@
       <dependency>
         <groupId>com.squareup.okio</groupId>
         <artifactId>okio</artifactId>
-        <version>1.13.0</version>
+        <version>1.16.0</version>
       </dependency>
       <dependency>
         <groupId>com.squareup.okhttp</groupId>
