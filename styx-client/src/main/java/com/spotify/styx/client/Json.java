@@ -24,7 +24,9 @@ import static com.google.gson.FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.ryanharter.auto.value.gson.GenerateTypeAdapter;
 import io.norberg.automatter.gson.AutoMatterTypeAdapterFactory;
+import net.dongliu.gson.GsonJava8TypeAdapterFactory;
 
 class Json {
 
@@ -34,6 +36,8 @@ class Json {
 
   static final Gson GSON = new GsonBuilder()
       .registerTypeAdapterFactory(new AutoMatterTypeAdapterFactory())
+      .registerTypeAdapterFactory(GenerateTypeAdapter.FACTORY)
+      .registerTypeAdapterFactory(new GsonJava8TypeAdapterFactory())
       .setFieldNamingPolicy(LOWER_CASE_WITH_UNDERSCORES)
       .create();
 }

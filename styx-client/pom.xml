@@ -35,6 +35,10 @@
       <groupId>io.norberg</groupId>
       <artifactId>auto-matter-gson</artifactId>
     </dependency>
+    <dependency>
+      <groupId>net.dongliu</groupId>
+      <artifactId>gson-java8-datatype</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>com.spotify</groupId>
